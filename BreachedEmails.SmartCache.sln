@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreachedEmails.SmartCache.Host", "BreachedEmails.SmartCache.Host\BreachedEmails.SmartCache.Host.csproj", "{29596105-632F-4ED4-A5C8-EF809FF16FFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreachedEmails.SmartCache.Interfaces", "BreachedEmails.SmartCache.Interfaces\BreachedEmails.SmartCache.Interfaces.csproj", "{0BE822DB-7D2E-4288-A2EC-6A1C8919BD37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreachedEmails.SmartCache.Grains", "BreachedEmails.SmartCache.Grains\BreachedEmails.SmartCache.Grains.csproj", "{76B1B864-B9E9-4B93-8A5B-6BB02E744164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreachedEmails.SmartCache.Client", "BreachedEmails.SmartCache.Client\BreachedEmails.SmartCache.Client.csproj", "{024C49CC-421D-46D9-B553-FDB3CE16EDA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{29596105-632F-4ED4-A5C8-EF809FF16FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29596105-632F-4ED4-A5C8-EF809FF16FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29596105-632F-4ED4-A5C8-EF809FF16FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE822DB-7D2E-4288-A2EC-6A1C8919BD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE822DB-7D2E-4288-A2EC-6A1C8919BD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE822DB-7D2E-4288-A2EC-6A1C8919BD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE822DB-7D2E-4288-A2EC-6A1C8919BD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B1B864-B9E9-4B93-8A5B-6BB02E744164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B1B864-B9E9-4B93-8A5B-6BB02E744164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B1B864-B9E9-4B93-8A5B-6BB02E744164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B1B864-B9E9-4B93-8A5B-6BB02E744164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{024C49CC-421D-46D9-B553-FDB3CE16EDA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024C49CC-421D-46D9-B553-FDB3CE16EDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024C49CC-421D-46D9-B553-FDB3CE16EDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024C49CC-421D-46D9-B553-FDB3CE16EDA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

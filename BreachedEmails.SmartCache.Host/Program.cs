@@ -6,7 +6,7 @@ namespace BreachedEmails.SmartCache.Host
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Breached emails app!");
         }
     }
 }
