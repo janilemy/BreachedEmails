@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Orleans;
 
 namespace BreachedEmails.SmartCache.Client.Controllers
 {
     [Route("api/[controller]")]
     public class BreachedEmailsController : Controller
     {
-        public BreachedEmailsController()
-        {
+        // Orleans client
+        private IClusterClient _clusterClient;
 
+        public BreachedEmailsController(IClusterClient clusterClient)
+        {
+            // Inject cluster client
+            _clusterClient = clusterClient;
         }
 
         // GET api/values/5

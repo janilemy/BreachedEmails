@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BreachedEmails.SmartCache.Grains;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Orleans;
+using Orleans.Configuration;
+using System;
+using System.Threading.Tasks;
 
 namespace BreachedEmails.SmartCache.Client
 {
@@ -42,13 +47,29 @@ namespace BreachedEmails.SmartCache.Client
         /// <returns>ICluster client</returns>
         private IClusterClient CreateOrleansClient()
         {
-            var clientBuilder = new ClientBuilder();
-
-            // TODO: Add client builder configuration
+            var clientBuilder = new ClientBuilder()
+                .UseLocalhostClustering()
+                .Configure<ClusterOptions>(options =>
+                {
+                    options.ClusterId = "BreachedEmailClusterId";
+                    options.ServiceId = "BreachedEmailsServiceId";
+                })
+                .ConfigureApplicationParts(parts =>
+                {
+                    parts.AddApplicationPart(typeof(EmailsGrain).Assembly).WithReferences();
+                })
+                .ConfigureLogging(logging => logging.AddConsole());
 
             var client = clientBuilder.Build();
 
-            // TODO: Add client connection
+            // Will be called from startup class which is synchronous
+            // wait until service is fully configured before begin a request
+            client.Connect(async ex =>
+            {
+                Console.WriteLine("Retrying...");
+                await Task.Delay(3000);
+                return true;
+            }).Wait();
 
             return client;
         }
