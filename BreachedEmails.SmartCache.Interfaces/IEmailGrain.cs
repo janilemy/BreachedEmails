@@ -1,4 +1,5 @@
 ﻿using Orleans;
+using System.Threading.Tasks;
 
 namespace BreachedEmails.SmartCache.Interfaces
 {
@@ -7,6 +8,8 @@ namespace BreachedEmails.SmartCache.Interfaces
     /// </summary>
     public interface IEmailsGrain : IGrainWithStringKey
     {
-        // TODO: Add grain interface methods
+        Task<bool> AddBreachedEmailAsync(string email);
+
+        Task<bool> IsBreachedEmail(string email);
     }
 }
