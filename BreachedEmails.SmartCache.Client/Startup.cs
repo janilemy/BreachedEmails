@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Orleans;
 
 namespace BreachedEmails.SmartCache.Client
 {
@@ -17,6 +18,10 @@ namespace BreachedEmails.SmartCache.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Register client in IoC container
+            var orleansClient = CreateOrleansClient();
+            services.AddSingleton(orleansClient);
+
             services.AddMvc();
         }
 
@@ -29,6 +34,23 @@ namespace BreachedEmails.SmartCache.Client
             }
 
             app.UseMvc();
+        }
+
+        /// <summary>
+        /// Helper method for Orleans client connection
+        /// </summary>
+        /// <returns>ICluster client</returns>
+        private IClusterClient CreateOrleansClient()
+        {
+            var clientBuilder = new ClientBuilder();
+
+            // TODO: Add client builder configuration
+
+            var client = clientBuilder.Build();
+
+            // TODO: Add client connection
+
+            return client;
         }
     }
 }

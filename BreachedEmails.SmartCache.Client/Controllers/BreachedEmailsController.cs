@@ -5,6 +5,11 @@ namespace BreachedEmails.SmartCache.Client.Controllers
     [Route("api/[controller]")]
     public class BreachedEmailsController : Controller
     {
+        public BreachedEmailsController()
+        {
+
+        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
